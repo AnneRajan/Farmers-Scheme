@@ -1,0 +1,42 @@
+<div>
+    <br>
+    <h2 class="text-center">Insurance Approval</h2>
+    <hr/>
+    <table class="table table-striped table-bordered" *ngIf="insuranceList && insuranceList.length > 0 else elseBlock">
+        <thead>
+          <tr>
+            <th>Farmer Email ID</th>
+            <th scope="col" class="text-center">Policy No.</th>
+            <th scope="col" class="text-center">Crop Type</th>
+            <th scope="col" class="text-center">Area</th>
+            <th scope="col" class="text-center">Policy For.</th>
+            <th scope="col" class="text-center">State</th>
+            <th scope="col" class="text-center">District</th>
+            <th scope="col" class="text-center">Insurance Company</th>
+            <th scope="col" class="text-center">Premium</th>
+            <th scope="col" class="text-center">Sum insured</th>
+            <th scope="col" class="text-center">Approval Status</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of insuranceList">
+            <td>{{i.farmer_email_id}}</td>
+            <td>{{i.policy_no}}</td>
+            <td>{{i.crop_type}}</td>
+            <td>{{i.area}}</td>
+            <td>{{i.policy_for}}</td>
+            <td>{{i.state}}</td>
+            <td>{{i.district}}</td>
+            <td>{{i.insurance_company}}</td>
+            <td>{{i.premiumamt}}</td>
+            <td>{{i.sum_insured}}</td>
+            <td ><button type="button"  class="btn btn-large btn-block btn-primary" (click)="approve(i)" id="{{i.policy_no}}" >Approve</button></td>
+        </tr>
+         
+        </tbody>
+      </table>
+      <ng-template #elseBlock>
+        <h4 align="center"> No policies left to approve ! </h4>
+    </ng-template>
+</div>

@@ -1,0 +1,63 @@
+<style type="text/css">
+	.form {
+		max-width: 40%;
+		margin: auto;
+		margin-top: 10%;
+		border-radius: 10px;
+
+	}
+	body {
+		background: linear-gradient(lightgreen,lightyellow) ;
+		height: 600px;
+
+	}
+
+</style>
+<body>
+	<h3 style="text-align: center;">Login Page <span class="text-danger">{{message}}</span></h3>
+	<div class= "container">
+		<form #loginform="ngForm" class="form" (ngSubmit)="checkLogin(loginform.value)">
+			<div  class="form-group">
+				<label for="logininputEmail">Email</label>
+				<input type="email" ngModel class="form-control" id="logininputEmail" name="email_id" #faremail='ngModel' placeholder="Email" required autofocus>
+				<div *ngIf='faremail.errors && faremail.touched' class="alert alert-danger">
+					<div [hidden]='!faremail.errors.required'>Email is Required</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="logininputPassword">Password</label>
+				<input type="password" ngModel class="form-control" #farpass='ngModel' id="logininputPassword" name='password' placeholder="Password" required autofocus>
+				<div *ngIf='farpass.errors && farpass.touched' class="alert alert-danger">
+					<div [hidden]='!farpass.errors.required'>Password is Required</div>
+				</div>
+			</div>
+			
+			<div> 
+				<a style="color: black;" routerLink="/forgot">Forgot Password?</a>
+
+			</div>
+			<input [disabled]="loginform.invalid" type="submit" value="Login" class="btn text-right btn-primary"/>
+
+
+		</form>
+
+		
+		<h5 style="text-align: center;color: black;">New User?Register Here</h5>
+
+
+		<h5 style="text-align: center;color: black;">Are you 
+			<span class=" btn text-right">
+				<a routerLink="/farmer"><button type="submit" class="btn btn-default btn-lg">Farmer</button></a>
+			</span>
+			or
+			<span class="btn text-left">
+				<a routerLink="/bidder"><button type="submit" class="btn btn-default btn-lg">Bidder</button></a>
+			</span>
+			?
+		</h5>
+		
+		
+	</div>
+	
+
+</body>

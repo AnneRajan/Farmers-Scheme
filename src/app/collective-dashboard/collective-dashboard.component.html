@@ -1,0 +1,39 @@
+<style>
+    html {
+  scroll-behavior: smooth;
+  }
+  .card{
+    padding: 5%;
+    position: relative;
+  }
+  .tableclass td{
+    border: solid 1px;
+    text-align: center;
+    height: 200px;
+  }
+</style>
+<div class="container">
+<div class="card" id="home" >
+    <table class="tableclass">
+      <tr>
+        <td style="background-color: #d6b910; font-weight: bold; font-size:20px;" >Total Farmers Registered: {{farmercount}}</td>
+        <td style="background-color: #d0f0c0; font-weight: bold; font-size:20px;">Total Bidders Registered: {{biddercount}}</td>
+      </tr>
+      <tr>
+        <td style="background-color: #d0f0c0; font-weight: bold; font-size:20px;">Total Farmers Approved: {{farmer_approve_count}}</td>
+        <td style="background-color: #d6b910; font-weight: bold; font-size:20px;">Total Bidders Approved: {{bidder_approve_count}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<hr/>
+<div class="text-center container">
+
+  <button [routerLink]="['/adminDashboard/collectiveDashboard/farmerDetailsList']" class="btn-lg btn-primary text-center">Farmer List</button>
+  &nbsp;
+  <button [routerLink]="['/adminDashboard/collectiveDashboard/bidderDetailsList']" class="btn-lg btn-primary text-center">Bidder List</button>
+</div>
+<hr/>
+<div>
+<router-outlet></router-outlet>
+</div>

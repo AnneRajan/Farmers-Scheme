@@ -1,0 +1,54 @@
+<!-- <style>
+th,
+td {
+  /* border: 1px solid black; */
+  width: 200px;
+  overflow: hidden;
+}
+</style> -->
+<div class="container-fluid">
+    <h2 class="text-center" style="background-color: #d6b910;">Farmer List</h2>
+    <table class="table table-striped table-bordered" *ngIf="farmerlist && farmerlist.length > 0 else elseBlock">
+        <thead class="text-center">
+            <tr>
+                <th>ID</th>
+                <th>FULL NAME</th>
+                <th>CONTACT NO</th>
+                <th>EMAIL ID</th>
+                <th>ADDRESS</th>
+                <th>CITY</th>
+                <th>STATE</th>
+                <th>PINCODE</th>
+                <th>LAND AREA</th>
+                <th>LAND ADDRESS</th>
+                <th>LAND PINCODE</th>
+                <th>ACCOUNT NO</th>
+                <th>IFSC CODE</th>
+                <th>ADMIN APPROVAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of farmerlist">
+                <td>{{f.farmer_id}}</td>
+                <td>{{f.full_name}}</td>
+                <td>{{f.contact_no}}</td>
+                <td>{{f.email_id}}</td>
+                <td>{{f.address_details}}</td>
+                <td>{{f.city}}</td>
+                <td>{{f.state}}</td>
+                <td>{{f.pincode}}</td>
+                <td>{{f.land_area}}</td>
+                <td>{{f.land_address}}</td>
+                <td>{{f.land_pincode}}</td>
+                <td>{{f.account_no}}</td>
+                <td>{{f.ifsc_code}}</td>
+                <td>{{f.admin_approval}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> No farmers registered ! </h4>
+    </ng-template>
+</div>
+
+

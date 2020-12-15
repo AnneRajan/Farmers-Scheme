@@ -1,0 +1,43 @@
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #679267;">
+        <a href="#home" class="navbar-brand"><span><img src="favicon.ico"/></span>Bidder Logo</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav">
+              <a routerLink="/viewmarketplace" class="nav-item nav-link">View Current Bid</a>
+          </div>
+      </div>
+
+    <div>{{'Hello '+bidderdetail}}</div>
+		<div class="navbar-nav ml-auto">
+      <a style="cursor: pointer;" *ngIf="authservice.isUserLoggedIn()" (click)="logout()" class="nav-link">Logout</a>
+    </div>
+	</nav>
+</div>
+<div class="container">
+<h2 align="center">Bid For Crops</h2>
+<table class = "table table-striped">
+<thead>
+<tr>
+<th>Crop Name</th>
+<th>Crop Type</th>
+<th>Base Price</th>
+<th>Quantity</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let bidding of biddings">
+<td>{{bidding.cropname}}</td>
+<td>{{bidding.croptype}}</td>
+<td>{{bidding.baseprice | currency:'INR'}}</td>
+<td>{{bidding.quantity}}</td>
+<td><button (click) ="getbidcrop(bidding)" class="btn btn-info">Bid</button></td>
+
+</tr>
+</tbody>
+</table>
+</div>

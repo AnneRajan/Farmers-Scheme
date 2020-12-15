@@ -1,0 +1,178 @@
+<style>
+    html {
+  scroll-behavior: smooth;
+  }
+  .card{
+    padding: 5%;
+    position: relative;
+  }
+  .tableclass td{
+    border: solid 1px;
+    text-align: center;
+    height: 200px;
+  }
+</style>
+<div class="bs-example">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #679267;">
+      <a href="#home" class="navbar-brand"><span><img src="favicon.ico"/></span>Farmer Logo</a>
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav">
+              <a href="#home" class="nav-item nav-link">Home</a>
+              <a href="#aboutus" class="nav-item nav-link">About Us</a>
+              <a href="#contactus" class="nav-item nav-link">Contact Us</a>
+          </div>
+          <div class="navbar-nav ml-auto">
+            <a routerLink="/AdminLogin" class="nav-item nav-link">Admin Login</a>
+        </div>
+          <div class="navbar-nav ml-auto">
+              <a *ngIf="!logoutservice.isUserLoggedIn()" routerLink="/login" class="nav-item nav-link">Login</a>
+              <a style="cursor: pointer;" *ngIf="logoutservice.isUserLoggedIn()" (click)="logout()" class="nav-link">Logout</a>
+          </div>
+      </div>
+  </nav>
+</div>
+ <div>
+   <div class="card" id="home" >
+     <table class="tableclass">
+       <tr>
+         <td style="background-color: #d0f0c0;"><a href="https://myknowledgebase.in/7-steps-for-successful-agricultural-practice-by-farmers/"><i class="fa fa-bullseye mt-4 fa-5x"></i><br>Start with Farming</a></td>
+         <td style="background-color: #d0f0c0;"><a href="https://www.nationalgeographic.org/activity/climate-crop-growth/"><i class="fa fa-paper-plane-o mt-4 fa-5x"></i><br>Use of Pesticides</a></td>
+       </tr>
+       <tr>
+         <td style="background-color: #d0f0c0;"><a href="http://agricoop.nic.in/programmes-schemes-listing"><i class="fa fa-info-circle mt-4 fa-5x"></i><br>Agriculture Support</a></td>
+         <td style="background-color: #d0f0c0;"><a href="http://agricoop.nic.in/programmes-schemes-listing"><i class="fa fa-life-ring mt-4 fa-5x"></i><br>Farmer Support</a></td>
+       </tr>
+     </table>
+   </div>
+
+   <div class="card" id="aboutus" style='background:linear-gradient(lightgreen,lightyellow); text-align: justify;'>
+    <span style="font-weight: bold;">Agriculture is the backbone of the Indian Economy"- said Mahatma Gandhi six decades ago.</span> Even today, the situation is still the same, with almost the entire economy being sustained by agriculture, which is the mainstay of the villages. It contributes 16% of the overall GDP and accounts for employment of approximately 52% of the Indian population. Rapid growth in agriculture is essential not only for self-reliance but also to earn valuable foreign exchange.
+
+    Indian farmers are second to none in production and productivity despite of the fact that millions are marginal and small farmers. They adopt improved agriculture technology as efficiently as farmers in developed countries. It is felt that with provision of timely and adequate inputs such as fertilizers, seeds, pesticides and by making available affordable agricultural credit /crop insurance, Indian farmers are going to ensure food and nutritional security to the Nation.It is envisaged to make available relevant information and services to the farming community and private sector through the use of information and communication technologies, to supplement the existing delivery channels provided for by the department. Farmers’ Portal is an endeavour in this direction to create one stop shop for meeting all informational needs relating to Agriculture, Animal Husbandry and Fisheries sectors production, sale/storage of an Indian farmer. With this Indian Farmer will not be required to sift through maze of websites created for specific purposes.Once in the Farmers’ Portal, a farmer will be able to get all relevant information on specific subjects around his village/block /district or state. This information will be delivered in the form of text, SMS, email and audio/video in the language he or she understands. These levels can be easily reached through the Map of India placed on the Home page. Farmers will also be able to ask specific queries as well as give valuable feedback through the Feedback module specially developed for the purpose.
+
+  </div>
+
+<div class="card" id="contactus">
+    <!--Section: Contact v.2-->
+<section class="mb-4">
+
+<!--Section heading-->
+<h2 class="h1-responsive font-weight-bold text-center my-4">Contact us <span class="text-success">{{message}}</span></h2>
+<!--Section description-->
+<p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+    a matter of hours to help you.</p>
+
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form #csform='ngForm' id="contact-form" (ngSubmit)="onSubmit(csform.value)">
+  
+                <!--Grid row-->
+                <div class="row">
+  
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" #vsname='ngModel' id="name" name="visitorname" ngModel class="form-control" required>
+                            <label for="name">Your name</label>
+                            <div *ngIf='vsname.errors && vsname.touched' class="alert alert-danger">
+                              <div [hidden]='!vsname.errors.required'>Name is Required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+  
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input ngModel type="text" id="email" #vsemail='ngModel' name="visitoremail" class="form-control" required>
+                            <label for="email">Your email</label>
+                            <div *ngIf='vsemail.errors && vsemail.touched' class="alert alert-danger">
+                              <div [hidden]='!vsemail.errors.required'>Name is Required</div>
+                          </div>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+  
+                </div>
+                <!--Grid row-->
+  
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <input type="text" #vssub='ngModel' id="subject" name="visitorsubject" ngModel class="form-control" required>
+                            <label for="subject">Subject</label>
+                            <div *ngIf='vssub.errors && vssub.touched' class="alert alert-danger">
+                              <div [hidden]='!vssub.errors.required'>Name is Required</div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+  
+                <!--Grid row-->
+                <div class="row">
+  
+                    <!--Grid column-->
+                    <div class="col-md-12">
+  
+                        <div class="md-form">
+                            <textarea type="text" #vsmes='ngModel' id="message" name="visitormessage" rows="2" ngModel class="form-control md-textarea" required></textarea>
+                            <label for="message">Your message</label>
+                            <div *ngIf='vsmes.errors && vsmes.touched' class="alert alert-danger">
+                              <div [hidden]='!vsmes.errors.required'>Name is Required</div>
+                          </div>
+                        </div>
+  
+                    </div>
+                </div>
+                <div class="text-center text-md-center">
+                  <input [disabled]="csform.invalid" type="submit" value="Send" class="btn text-right" style="background-color:#679267;"/>
+                </div>
+                <!--Grid row-->
+            </form>
+        </div>
+        <!--Grid column-->
+  
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fa fa-map-marker mt-4 fa-2x"></i>
+                    <p>Mumbai, Maharashtra, India</p>
+                </li>
+  
+                <li><i class="fa fa-mobile  mt-4 fa-3x"></i>
+                    <p>+91 9087654321</p>
+                </li>
+  
+                <li><i class="fa fa-envelope mt-4 fa-2x"></i>
+                    <p>contact@farmersupport.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+  
+    </div>
+  
+  </section>
+  <!--Section: Contact v.2-->
+  </div>
+  </div>
+  <div>
+    <footer class="page-footer font-small" style="background-color:#679267;;">
+  
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="index.html" style="color: #000;"> Farmer Support</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+  </div>
+  <router-outlet></router-outlet>

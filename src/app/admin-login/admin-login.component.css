@@ -1,0 +1,7 @@
+.form {
+    max-width: 40%;
+    margin: auto;}
+.container{
+        background: linear-gradient(lightgreen,lightyellow) ;
+        height:600px;
+    }

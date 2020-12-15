@@ -1,0 +1,33 @@
+<div class="container">
+  <table class="table table-striped" *ngIf="bidders && bidders.length > 0 else elseBlock">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email Id</th>
+              <th>Contact No.</th>
+              <th>Admin Approval</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let b of bidders">
+              <td>{{b.bidder_id}}</td>
+              <td>{{b.full_name}}</td>
+              <td>{{b.email_id}}</td>
+              <td>{{b.contact_no}}</td>
+              <td *ngIf="admin!='true'; then thenTd; else elseTd "></td>
+              <ng-template #thenTd>
+                  
+                  <td ><button type="button"  class="btn btn-large btn-block btn-primary" (click)="approve(b)" id="{{b.bidder_id}}" >Approve</button></td>
+
+              </ng-template>
+              <ng-template #elseTd>
+                  <td>true</td>
+              </ng-template>
+          </tr>
+      </tbody>
+  </table>
+  <ng-template #elseBlock>
+      <h4 align="center"> No bidders left for approval! </h4>
+  </ng-template>
+</div>

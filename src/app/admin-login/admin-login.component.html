@@ -1,0 +1,48 @@
+<div class="justify-content-center align-items-center container" >
+    <div *ngIf="error">
+        <h3 class="text-danger">Invalid data!!!</h3>
+    </div>
+
+    <div *ngIf="check" style="color:green;" class="text-center"><h2>Logged in Successfully</h2></div>
+    <div *ngIf="check; then elseBlock; else thenBlock"></div>
+    <ng-template #thenBlock >
+<form action="#" class="form" [formGroup]="AdminLoginForm" (ngSubmit)="submitDetails()" >
+    <!-- {{adminLoginForm.value | json}} -->
+    <div class="text-center">
+        <h1>Admin Login</h1>
+    </div>
+    
+    <div class="form-group">
+      <label for="admin_uname"> Admin UserName:</label>
+      <input [formControl]="nameControl" type="text" name="admin_uname" class="form-control" id="admin_uname" required autofocus>
+
+      <span *ngIf="nameControl.hasError('required') && nameControl.dirty" class="text-danger">Name required</span>
+    </div>
+    <div class="form-group">
+      <label for="admin_pwd">Password:</label>
+      <input [formControl]="passwordControl" type="password" name="admin_pwd" class="form-control" id="admin_pwd" required autofocus>
+
+      <span *ngIf="passwordControl.hasError('required') && passwordControl.dirty" class="text-danger">Password required</span>
+    </div>
+    <!-- <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div> -->
+    <div class="text-center">
+      
+      <button type="submit" class="btn-lg btn-primary text-center" [disabled]="!AdminLoginForm.valid">Submit</button>
+      
+      </div>
+      
+  </form>
+</ng-template>
+<ng-template #elseBlock>
+  <br>
+  <br>
+  <br>
+  <div class="text-center">
+  <button *ngIf="check" routerLink="/adminDashboard" class="btn-lg btn-primary text-center">Admin Dashboard</button>
+</div>
+</ng-template>
+</div>
+
+<!-- <a href="BidderRegistration.html"><button type="submit" class="btn btn-default btn-lg">Bidder</button></a> -->

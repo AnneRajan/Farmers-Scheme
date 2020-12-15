@@ -1,0 +1,45 @@
+<div class="container">
+    <h3 class="text-success">Bid For Crops <span class="text-primary">{{message}}</span></h3>
+    <form #bidform="ngForm" (ngSubmit)='onSubmit(bidform.value)'>
+        <div class="form-group">
+            <label>Crop Name:</label>
+            <input required minlength="1" type="text" #cname='ngModel' [(ngModel)]="obj1.cropname" readonly="readonly" name='cropname' ngModel class="form-control" />
+            <div *ngIf='cname.errors && cname.touched' class="alert alert-danger">
+                <div [hidden]='!cname.errors.required'>Crop Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Crop Type:</label>
+            <input readonly required minlength="3" type="text" #ctype='ngModel' [(ngModel)]="obj1.croptype" name='croptype' ngModel class="form-control" />
+            <div *ngIf='ctype.errors && ctype.touched' class="alert alert-danger">
+                <div [hidden]='!ctype.errors.required'>Crop Type is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Base Price:</label>
+            <input readonly required minlength="2" type="text" #bprice='ngModel' [(ngModel)]="obj1.baseprice" name='baseprice' ngModel class="form-control" />
+            <div *ngIf='bprice.errors && bprice.touched' class="alert alert-danger">
+                <div [hidden]='!bprice.errors.required'>Base Price is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Quantity:</label>
+            <input readonly required minlength="3" type="text" #quant='ngModel' name='quantity' [(ngModel)]="obj1.quantity" ngModel class="form-control" />
+            <div *ngIf='quant.errors && quant.touched' class="alert alert-danger">
+                <div [hidden]='!quant.errors.required'>Quantity is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Enter Bid Amount</label>
+            <input required type="number" minlength="1" #bamount='ngModel' name='bidamount' ngModel class="form-control" />
+            <div *ngIf='bamount.errors && bamount.touched' class="alert alert-danger">
+                <div [hidden]='!bamount.errors.required'>Bid Amount is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="biddermailid">Bidder Email id</label>
+            <input readonly type="text" class="form-control" id="biddermailid" [(ngModel)]="bidderemail" name="bidder_email_id">
+        </div>
+        <input [disabled]="bidform.invalid" type="submit" value="Bid" class="btn btn-primary" />
+    </form>
+</div>

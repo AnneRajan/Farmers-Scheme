@@ -1,0 +1,166 @@
+<style type="text/css">
+	
+	.form{
+
+		max-width: 40%;
+		margin: auto;
+
+
+	}
+	body{
+		background: linear-gradient(lightgreen,lightyellow) ;
+	}
+</style>
+<body>
+	<h3 style="text-align: center;">Farmer Registration Page<span class="text-danger">{{message}}</span></h3>
+	<hr>
+	<h3 style="text-align: center;">Personal Details</h3>
+	<div class="container">
+		<form #farmerform="ngForm" class="form" (ngSubmit)='onSubmit(farmerform.value)'>
+			<div class="form-group">
+
+				<label for="inputFullName">Full Name</label>
+				<input minlength="5" type="text" ngModel class="form-control" id="inputFullName" name="full_name" #farname='ngModel' placeholder="Full Name" required autofocus>
+				<div *ngIf='farname.errors && farname.touched' class="alert alert-danger">
+					<div [hidden]='!farname.errors.required'>Name is Required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputContactNumber">Contact Number</label>
+				<input minlength="10" type="text" ngModel class="form-control" id="inputContactNumber" name="contact_no" #farcon='ngModel' placeholder="Contact Number" required autofocus>
+				<div *ngIf='farcon.errors && farcon.touched' class="alert alert-danger">
+					<div [hidden]='!farcon.errors.required'>Contact Number is Required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputEmail">Email</label>
+				<input type="email" ngModel class="form-control" id="inputEmail" name="email_id" #faremail='ngModel' placeholder="Email" required autofocus>
+				<div *ngIf='faremail.errors && faremail.touched' class="alert alert-danger">
+					<div [hidden]='!faremail.errors.required'>Email is Required</div>
+				</div>
+			</div>
+
+			<h3 style="text-align: center;">Address Details</h3>
+			
+			<div class="form-group">
+				<label for="inputAddress">Address</label>
+				<input type="text" ngModel class="form-control" id="inputAddress" placeholder="Address" #faradd='ngModel' name="address_details" required autofocus>
+				<div *ngIf='faradd.errors && faradd.touched' class="alert alert-danger">
+					<div [hidden]='!faradd.errors.required'>Address is Required</div>
+				</div>	
+			</div>
+
+
+			<div class="form-group">
+				<label for="inputCity">City</label>
+				<input type="text" ngModel class="form-control" id="inputCity" #farcity='ngModel' name="city" placeholder="City" required autofocus>
+				<div *ngIf='farcon.errors && farcon.touched' class="alert alert-danger">
+					<div [hidden]='!farcon.errors.required'>City is Required</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="inputState">State</label>
+				<input type="text" ngModel class="form-control" id="inputState" #farstate='ngModel' name="state" placeholder="State" required autofocus>
+				<div *ngIf='farstate.errors && farstate.touched' class="alert alert-danger">
+					<div [hidden]='!farstate.errors.required'>State is Required</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="inputPinCode">PinCode</label>
+				<input type="text" ngModel class="form-control" id="inputPinCode" #farpin='ngModel' name="pincode" placeholder="PinCode" required autofocus>
+				<div *ngIf='farpin.errors && farpin.touched' class="alert alert-danger">
+					<div [hidden]='!farpin.errors.required'>Pincode is Required</div>
+				</div>
+			</div>
+
+			<h3 style="text-align: center;">Land Details</h3>
+
+
+
+			<div class="form-group">
+				<label for="inputArea">Area</label>
+				<input type="text" ngModel class="form-control" id="inputArea" #landarea='ngModel' name="land_area" placeholder="Area" required autofocus>
+				<div *ngIf='landarea.errors && landarea.touched' class="alert alert-danger">
+					<div [hidden]='!landarea.errors.required'>Land Area Details is Required</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="inputlAddress">Address</label>
+				<input type="text" ngModel class="form-control" id="inputlAddress" #landpin='ngModel' name="land_address" placeholder="Address" required autofocus>
+				<div *ngIf='landpin.errors && landpin.touched' class="alert alert-danger">
+					<div [hidden]='!landpin.errors.required'>Land Address is Required</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="inputlPinCode">PinCode</label>
+				<input type="text" ngModel class="form-control" id="inputlPinCode" #landadd='ngModel' name='land_pincode' placeholder="PinCode" required autofocus>
+				<div *ngIf='landadd.errors && landadd.touched' class="alert alert-danger">
+					<div [hidden]='!landadd.errors.required'>Land Pincode is Required</div>
+				</div>
+			</div>
+
+
+
+			<h3 style="text-align: center;">Bank Details</h3>
+
+			<div class="form-group">
+				<label for="inputAccountNumber">Account Number</label>
+				<input type="text" ngModel class="form-control" id="inputAccountNumber" #faraccount='ngModel' name="account_no" placeholder="Account Number" required autofocus>
+				<div *ngIf='faraccount.errors && faraccount.touched' class="alert alert-danger">
+					<div [hidden]='!faraccount.errors.required'>Account Number is Required</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="inputIfsc">IFSC Code</label>
+				<input type="text" ngModel class="form-control" id="inputIfsc" #farifsc='ngModel' name="ifsc_code" placeholder="IFSC Code" required autofocus>
+				<div *ngIf='farifsc.errors && farifsc.touched' class="alert alert-danger">
+					<div [hidden]='!farifsc.errors.required'>IFSC code is Required</div>
+				</div>
+			</div>
+
+			
+
+			<div class="form-group">
+				<label for="inputPassword">Password</label>
+				<input type="password" ngModel class="form-control" #farpass='ngModel' id="inputPassword" name='password' placeholder="Password" required autofocus>
+				<div *ngIf='farpass.errors && farpass.touched' class="alert alert-danger">
+					<div [hidden]='!farpass.errors.required'>Password is Required</div>
+				</div>
+			</div>
+
+			<!--<div class="form-group">
+				<label for="inputConfirmPassword">Confirm Password</label>
+				<input type="password" ngModel class="form-control" #farcpass='ngModel' id="inputConfirmPassword" name="cpassword" placeholder="Confirm Password" required autofocus>
+				<div *ngIf='farcpass.errors && farcpass.touched' class="alert alert-danger">
+					<div [hidden]='!farcpass.errors.required'>Confirm password is Required</div>
+				</div>
+			</div>-->
+
+<div class="text-center">
+			<input [disabled]="farmerform.invalid" type="submit" value="Register" class="btn text-right btn-lg btn-primary"/>
+			&nbsp;
+			<input [disabled]="farmerform.invalid" type="reset" value="Reset" class="btn text-right btn-lg btn-primary"/>
+</div>
+		</form>
+
+
+	</div>
+	
+
+
+</body>

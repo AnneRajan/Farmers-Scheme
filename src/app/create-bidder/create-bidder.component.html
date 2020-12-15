@@ -1,0 +1,135 @@
+<style type="text/css">
+	
+	.form{
+
+		max-width: 40%;
+		margin: auto;
+
+
+	}
+	body{
+		background: linear-gradient(lightgreen,lightyellow) ;
+	}
+</style>
+<body>
+	<h3 style="text-align: center;">Bidder Registration Page<span class="text-danger">{{message}}</span></h3>
+	<hr>
+	<h3 style="text-align: center;">Personal Details</h3>
+	<div class="container">
+		<form #bidderform="ngForm" class="form" (ngSubmit)='onSubmit(bidderform.value)'>
+			<div class="form-group">
+
+				<label for="binputFullName">Full Name</label>
+				<input minlength="5" type="text" ngModel class="form-control" id="binputFullName" name="full_name" #farname='ngModel' placeholder="Full Name" required autofocus>
+				<div *ngIf='farname.errors && farname.touched' class="alert alert-danger">
+					<div [hidden]='!farname.errors.required'>Name is Required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="binputContactNumber">Contact Number</label>
+				<input minlength="10" type="text" ngModel class="form-control" id="binputContactNumber" name="contact_no" #farcon='ngModel' placeholder="Contact Number" required autofocus>
+				<div *ngIf='farcon.errors && farcon.touched' class="alert alert-danger">
+					<div [hidden]='!farcon.errors.required'>Contact Number is Required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="binputEmail">Email</label>
+				<input type="email" ngModel class="form-control" id="binputEmail" name="email_id" #faremail='ngModel' placeholder="Email" required autofocus>
+				<div *ngIf='faremail.errors && faremail.touched' class="alert alert-danger">
+					<div [hidden]='!faremail.errors.required'>Email is Required</div>
+				</div>
+			</div>
+
+			<h3 style="text-align: center;">Address Details</h3>
+			
+			<div class="form-group">
+				<label for="binputAddress">Address</label>
+				<input type="text" ngModel class="form-control" id="binputAddress" placeholder="Address" #faradd='ngModel' name="address_details" required autofocus>
+				<div *ngIf='faradd.errors && faradd.touched' class="alert alert-danger">
+					<div [hidden]='!faradd.errors.required'>Address is Required</div>
+				</div>	
+			</div>
+
+
+			<div class="form-group">
+				<label for="binputCity">City</label>
+				<input type="text" ngModel class="form-control" id="binputCity" #farcity='ngModel' name="city" placeholder="City" required autofocus>
+				<div *ngIf='farcon.errors && farcon.touched' class="alert alert-danger">
+					<div [hidden]='!farcon.errors.required'>City is Required</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="binputState">State</label>
+				<input type="text" ngModel class="form-control" id="binputState" #farstate='ngModel' name="state" placeholder="State" required autofocus>
+				<div *ngIf='farstate.errors && farstate.touched' class="alert alert-danger">
+					<div [hidden]='!farstate.errors.required'>State is Required</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="binputPinCode">PinCode</label>
+				<input type="text" ngModel class="form-control" id="binputPinCode" #farpin='ngModel' name="pincode" placeholder="PinCode" required autofocus>
+				<div *ngIf='farpin.errors && farpin.touched' class="alert alert-danger">
+					<div [hidden]='!farpin.errors.required'>Pincode is Required</div>
+				</div>
+			</div>
+
+
+
+			<h3 style="text-align: center;">Bank Details</h3>
+
+			<div class="form-group">
+				<label for="binputAccountNumber">Account Number</label>
+				<input type="text" ngModel class="form-control" id="binputAccountNumber" #faraccount='ngModel' name="account_no" placeholder="Account Number" required autofocus>
+				<div *ngIf='faraccount.errors && faraccount.touched' class="alert alert-danger">
+					<div [hidden]='!faraccount.errors.required'>Account Number is Required</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="binputIfsc">IFSC Code</label>
+				<input type="text" ngModel class="form-control" id="binputIfsc" #farifsc='ngModel' name="ifsc_code" placeholder="IFSC Code" required autofocus>
+				<div *ngIf='farifsc.errors && farifsc.touched' class="alert alert-danger">
+					<div [hidden]='!farifsc.errors.required'>IFSC code is Required</div>
+				</div>
+			</div>
+
+
+			<div class="form-group">
+				<label for="binputPassword">Password</label>
+				<input type="password" ngModel class="form-control" #farpass='ngModel' id="binputPassword" name='password' placeholder="Password" required autofocus>
+				<div *ngIf='farpass.errors && farpass.touched' class="alert alert-danger">
+					<div [hidden]='!farpass.errors.required'>Password is Required</div>
+				</div>
+			</div>
+
+			<!--<div class="form-group">
+				<label for="inputConfirmPassword">Confirm Password</label>
+				<input type="password" ngModel class="form-control" #farcpass='ngModel' id="inputConfirmPassword" name="cpassword" placeholder="Confirm Password" required autofocus>
+				<div *ngIf='farcpass.errors && farcpass.touched' class="alert alert-danger">
+					<div [hidden]='!farcpass.errors.required'>Confirm password is Required</div>
+				</div>
+			</div>-->
+
+		<div class="text-center">
+			<input [disabled]="bidderform.invalid" type="submit" value="Register" class="btn text-right btn-primary btn-lg"/>
+			&nbsp;
+			<input [disabled]="bidderform.invalid" type="reset" value="Reset" class="btn text-right btn-primary btn-lg"/>
+		</div>
+		&nbsp;
+		</form>
+
+
+	</div>
+	
+
+
+</body>

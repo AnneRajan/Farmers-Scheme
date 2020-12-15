@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table table-striped" *ngIf="feedbacks && feedbacks.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of feedbacks">
+                <td>{{f.visitorid}}</td>
+                <td>{{f.visitorname}}</td>
+                <td>{{f.visitoremail}}</td>
+                <td>{{f.visitorsubject}}</td>
+                <td>{{f.visitormessage}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> No feedbacks yet ! </h4>
+    </ng-template>
+</div>
+

@@ -1,0 +1,78 @@
+<style type="text/css">
+	
+	.form{
+
+		max-width: 40%;
+		margin: auto;
+
+
+	}
+	  
+.container {
+  background: linear-gradient(lightgreen,lightyellow) ;
+ 
+
+}
+</style>
+
+<div class= "container">
+		<h3 style="text-align: center;">Enter Crop Details<span class="text-success">{{message}}</span></h3>
+		<hr>
+		<form #sellrequest="ngForm" class="form"  (ngSubmit)='onSubmit(sellrequest.value)'>
+			<div class="form-group">
+				<label for="inputCropType">Crop Type</label>
+				<input type="text" ngModel class="form-control" id="inputCropType" placeholder="Crop Type" #crptype='ngModel' name="croptype" required autofocus>
+				<div *ngIf='crptype.errors && crptype.touched' class="alert alert-danger">
+					<div [hidden]='!crptype.errors.required'>Crop Type is Required</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inputCropName">Crop Name</label>
+				<input type="text" ngModel class="form-control" id="inputCropName" placeholder="Crop Name" #crpname='ngModel' name="cropname" required autofocus>
+				<div *ngIf='crpname.errors && crpname.touched' class="alert alert-danger">
+					<div [hidden]='!crpname.errors.required'>Crop Name is Required</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inputFertilizerType">Fertilizer Type</label>
+				<input type="text" ngModel class="form-control" id="inputFertilizerType" placeholder="Fertilizer Type" #fertitype='ngModel' name="fertilizertype" required autofocus>
+				<div *ngIf='fertitype.errors && fertitype.touched' class="alert alert-danger">
+					<div [hidden]='!fertitype.errors.required'>Fertilizer Type is Required</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="inputFertilizerName">Quantity</label>
+				<input type="text" ngModel class="form-control" id="inputFertilizerName" placeholder="Quantity" #quant="ngModel" name="quantity" required autofocus>
+				<div *ngIf='quant.errors && quant.touched' class="alert alert-danger">
+					<div [hidden]='!quant.errors.required'>Name is Required</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="inputFertilizerName">Base Price</label>
+				<input type="text" ngModel class="form-control" id="baseprice" placeholder="Base Price" #basep="ngModel" name="baseprice" required autofocus>
+				<div *ngIf='basep.errors && basep.touched' class="alert alert-danger">
+					<div [hidden]='!basep.errors.required'>Base Price is Required</div>
+				</div>
+			</div>
+			
+			
+			<div class="form-group">
+				<label for="inputSoilPhCertificate">Soil PH Certificate</label>
+				<input type="file"  ngModel class="form-control" id="inputSoilPhCertificate" placeholder="Soil PH Certificate" #soilcerti='ngModel' name="soilphcertificate" required autofocus>
+				<div *ngIf='soilcerti.errors && soilcerti.touched' class="alert alert-danger">
+					<div [hidden]='!soilcerti.errors.required'>Certificate is Required</div>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="farmeremailid">Farmer Email id</label>
+				<input readonly type="text" class="form-control" id="farmeremailid" [(ngModel)]="farmeremail" name="farmer_email_id">
+			</div>
+			
+			<input [disabled]="sellrequest.invalid" type="submit" value="Register" class="btn text-right btn-primary"/>
+
+		</form>

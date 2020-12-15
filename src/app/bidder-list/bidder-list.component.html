@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <h2 class="text-center" style="background-color: #d6b910;"> Bidder List</h2>
+    <table class="table table-striped table-bordered" *ngIf="bidderlist && bidderlist.length > 0 else elseBlock">
+        <thead class="text-center">
+            <tr>
+                <th>ID</th>
+                <th>FULL NAME</th>
+                <th>CONTACT NO</th>
+                <th>EMAIL ID</th>
+                <th>ADDRESS</th>
+                <th>CITY</th>
+                <th>STATE</th>
+                <th>PINCODE</th>
+                <th>ACCOUNT NO</th>
+                <th>IFSC CODE</th>
+                <!-- <th>Admin Approval</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of bidderlist">
+                <td>{{b.bidder_id}}</td>
+                <td>{{b.full_name}}</td>
+                <td>{{b.contact_no}}</td>
+                <td>{{b.email_id}}</td>
+                <td>{{b.address_details}}</td>
+                <td>{{b.city}}</td>
+                <td>{{b.state}}</td>
+                <td>{{b.pincode}}</td>
+                <td>{{b.account_no}}</td>
+                <td>{{b.ifsc_code}}</td>
+                <!-- <td>{{f.admin_approval}}</td> -->
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> No Bidders registered ! </h4>
+    </ng-template>
+</div>
+
+
+

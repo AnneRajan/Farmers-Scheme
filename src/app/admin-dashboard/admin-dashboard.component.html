@@ -1,0 +1,40 @@
+<div>
+<div >
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #679267;">
+        <a [routerLink]="['/adminDashboard/collectiveDashboard']" class="navbar-brand"><span><img src="favicon.ico"/></span>Admin Logo</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a [routerLink]="['/adminDashboard/collectiveDashboard']" class="nav-item nav-link">Admin Dashboard</a>
+                <a [routerLink]="['/adminDashboard/totalfarmers']" class="nav-item nav-link">Farmers</a>
+                <a [routerLink]="['/adminDashboard/totalBidders']" class="nav-item nav-link">Bidders</a>
+                <a [routerLink]="['/adminDashboard/insuranceApproval']" class="nav-item nav-link">Insurance Approval</a>
+                <a [routerLink]="['/adminDashboard/feedback']" class="nav-item nav-link">Feedback</a>
+                <a [routerLink]="['/adminDashboard/viewmarketplace']" class="nav-item nav-link">View Market Place</a>
+
+            </div>
+      
+            <div class="navbar-nav ml-auto">
+                <a routerLink="" class="nav-item nav-link">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+</div>
+<div class="container" id="dashboard"> 
+    <h2 class="text-center">DASHBOARD</h2>
+
+
+</div>
+
+
+<router-outlet></router-outlet>
+
+
+</div>
+
+
+

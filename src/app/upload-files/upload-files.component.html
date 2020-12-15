@@ -1,0 +1,28 @@
+
+
+<h3 class="text-primary">{{headermessage}} </h3>
+<div class="container">
+
+
+
+
+<label class="btn btn-default">
+  <input type="file" multiple (change)="selectFiles($event)" />
+</label>
+
+<button
+  class="btn btn-success"
+  [disabled]="!selectedFiles"
+  (click)="uploadFiles()"
+>
+  Upload
+</button>
+
+<div class="text-success" class="alert alert-light" >{{ message }}</div>
+<div>
+
+  <button class="btn btn-primary btn-lg" (click)="backtologin()">Back to Login</button>
+
+
+</div>
+</div>

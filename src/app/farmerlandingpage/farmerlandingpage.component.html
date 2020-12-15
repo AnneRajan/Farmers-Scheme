@@ -1,0 +1,70 @@
+<style type="text/css">
+	
+	.form{
+
+		max-width: 40%;
+		margin: auto;
+        margin-top:10%;
+        margin-left: 30%;
+
+
+  }
+  
+body {
+  background: linear-gradient(lightgreen,lightyellow) ;
+ 
+
+}
+
+</style>
+<body>
+
+  <div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color: #679267;">
+        <a href="#home" class="navbar-brand"><span><img src="favicon.ico"/></span>Farmer Logo</a>
+    <div>{{'Hello '+farmerdetail}}</div>
+		<div class="navbar-nav ml-auto">
+      <a style="cursor: pointer;" *ngIf="logoutservice.isUserLoggedIn()" (click)="logout()" class="nav-link">Logout</a>
+    </div>
+	</nav>
+</div>
+  
+      
+
+
+<div class="form text-center">
+
+
+  <div>
+    <a routerLink="/placesellrequest"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">Place Sell Request</button></a>
+  </div>
+ &nbsp;
+  <div>
+    <a routerLink="/viewsoldcrophistory"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">View Sold Crop History</button></a>
+  </div>
+  &nbsp;
+  <div>
+    <a routerLink="/viewmarketplace"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">View Marketplace</button></a>
+  </div>
+  &nbsp;
+  <div>
+    <a routerLink="/applyInsurance"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">Apply Insurance</button></a>
+  </div>
+  &nbsp;
+  <div>
+    <a routerLink="/viewMyInsurance"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">My Insurance</button></a>
+  </div>
+  &nbsp;
+  <div>
+    <a routerLink="/claimInsurance"><button type="submit" class="btn btn-primary center-block btn-block btn-lg">Claim Insurance</button></a>
+  </div>
+  &nbsp;
+  <div>
+    <a href="https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fannerajan.github.io%2Fcrop-calculator%2Fcalculator"><button type="submit"  class="btn btn-primary center-block btn-block btn-lg">Insurance Calculator</button></a>
+  </div>
+  &nbsp;
+
+
+
+</div>
+</body>

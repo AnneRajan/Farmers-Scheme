@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <h2 class="text-center" style="background-color: #d6b910;">View Current Market Bid</h2>
+    <table class="table table-striped table-bordered" *ngIf="bidproduct && bidproduct.length > 0 else elseBlock">
+        <thead class="text-center">
+            <tr>
+                <th>Crop Name</th>
+                <th>Crop Type</th>
+                <th>Base Price</th>
+                <th>Quantity</th>
+                <th>Current Bid</th>
+                
+                <!-- <th>Admin Approval</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of bidproduct">
+                <td>{{s.cropname}}</td>
+                <td>{{s.croptype}}</td>
+                <td>{{s.baseprice}}</td>
+                <td>{{s.quantity}}</td>
+                <td>{{s.bidamount | currency:'INR'}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center">Be First to Bid for Crops </h4>
+    </ng-template>
+  </div>

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <h2 class="text-center" style="background-color: #d6b910;">Sold History</h2>
+  <table class="table table-striped table-bordered" *ngIf="sold && sold.length > 0 else elseBlock">
+      <thead class="text-center">
+          <tr>
+              <th>Sold Id</th>
+              <th>Sold Date</th>
+              <th>Crop Name</th>
+              <th>Quantity</th>
+              <th>MSP</th>
+              <th>Sold Price</th>
+              <th>Total Price</th>
+              
+              <!-- <th>Admin Approval</th> -->
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let s of sold">
+              <td>{{s.soldid}}</td>
+              <td>{{s.solddate}}</td>
+              <td>{{s.cropname}}</td>
+              <td>{{s.quantity}}</td>
+              <td>{{s.msp | currency:'INR'}}</td>
+              <td>{{s.soldprice | currency:'INR'}}</td>
+              <td>{{s.totalprice | currency:'INR'}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <ng-template #elseBlock>
+      <h4 align="center"> No Sold History! </h4>
+  </ng-template>
+</div>

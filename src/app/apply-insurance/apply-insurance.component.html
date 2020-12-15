@@ -1,0 +1,78 @@
+
+<style>
+    
+.container {
+  background: linear-gradient(lightgreen,lightyellow) ;
+ 
+
+}
+</style>
+<div class = "container">
+  <h2>Create New Policy <span class="text-warning">{{message}}</span></h2>
+  <hr/>
+<form #insuranceForm="ngForm" style="max-width:500px;margin:auto" (ngSubmit) = "onSubmit(insuranceForm.value)">
+<br>
+
+
+
+<div class="form-group">
+<label>Crop Type: <span>*</span></label>
+<select id="crop_type" name="crop_type" class="form-control" ngModel >
+  <option value="rabi">Rabi</option>
+  <option value="kharif">Kharif</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Area (in Hectors) <span>*</span></label>
+<input type = "number" name="area" id="area"  placeholder = "Enter Area of the field(in Hectors)" class="form-control"  ngModel >
+</div>
+
+
+<div class="form-group">
+<label>Policy For: <span>*</span></label>
+<select id="policy_for" name="policy_for" class="form-control" ngModel>
+  <option value="flood">Flood</option>
+  <option value="drought">Drought</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>State: <span>*</span></label>
+<select id="state" name="state" class="form-control" ngModel >
+  <option value="maharashtra">Maharashtra</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>District <span>*</span></label>
+<input type = "text"  id="district" name="district" placeholder = "Enter District" class="form-control" ngModel>
+</div>
+
+<div class="form-group">
+<label>Insurance Company <span>*</span></label>
+<input type = "text" id="insurance_company" name="insurance_company"  placeholder = "Enter  Insurance Company" class="form-control "ngModel>
+</div>
+
+
+<div class="form-group">
+<label>Premium Amount <span>*</span></label>
+<input type = "number" id="premiumamt"  name="premiumamt" placeholder = "Enter Premium Amount" class="form-control" ngModel>
+</div>
+
+
+<div class="form-group">
+<label>Sum Insured <span>*</span></label>
+<input type = "number" id="sum_insured" name="sum_insured" placeholder = "Enter Sum Insured" class="form-control" ngModel >
+</div>
+
+<div class="form-group">
+  <label for="farmeremailid">Farmer Email id</label>
+  <input readonly type="text" class="form-control" id="farmeremailid" [(ngModel)]="farmer_email_id" name="farmer_email_id">
+</div>
+<div class="text-center">
+ <button class = "btn btn-primary btn-lg" type ="submit">Submit</button>
+</div>
+&nbsp;
+</form>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <table class="table table-striped" *ngIf="farmers && farmers.length > 0 else elseBlock">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email Id</th>
+                <th>Contact No.</th>
+                <th>Admin Approval</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of farmers">
+                <td>{{f.farmer_id}}</td>
+                <td>{{f.full_name}}</td>
+                <td>{{f.email_id}}</td>
+                <td>{{f.contact_no}}</td>
+                <td *ngIf="admin!='true'; then thenTd; else elseTd "></td>
+                <ng-template #thenTd>
+                    
+                    <td ><button type="button"  class="btn btn-large btn-block btn-primary" (click)="approve(f)" id="{{f.farmer_id}}" >Approve</button></td>
+
+                </ng-template>
+                <ng-template #elseTd>
+                    <td>true</td>
+                </ng-template>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> No farmers left for approval ! </h4>
+    </ng-template>
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <h2 class="text-center" style="background-color: #d6b910;">My Insurance Policy</h2>
+    <table class="table table-striped table-bordered" *ngIf="myInsurance && myInsurance.length > 0 else elseBlock">
+        <thead class="text-center">
+            <tr>
+                <th>Policy No</th>
+                <th>Insurance Company</th>
+                <th>Email ID</th>
+                <th>Policy For</th>
+                <th>Premium</th>
+                <th>Admin Approval</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of myInsurance">
+                <td>{{i.policy_no}}</td>
+                <td>{{i.insurance_company}}</td>
+                <td>{{i.farmer_email_id}}</td>
+                <td>{{i.policy_for}}</td>
+                <td>{{i.premiumamt}}</td>
+                <td>{{i.admin_approval}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> You have not yet applied for insurance ! </h4>
+    </ng-template>
+</div>
+
+
+
